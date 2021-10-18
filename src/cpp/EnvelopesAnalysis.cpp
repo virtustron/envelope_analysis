@@ -6,7 +6,7 @@
 int InitializeEnvelopesContainer(void** container_to_initialize, double envelope1_size1, double envelope1_size2, double envelope2_size1, double envelope2_size2)
 {
     // TODO try smart poriners
-    EnvelopesContainer* envelopes_container;
+    EnvelopesContainer* envelopes_container = NULL;
     
     try
     {

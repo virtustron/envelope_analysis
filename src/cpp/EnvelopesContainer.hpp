@@ -1,4 +1,4 @@
-#pragma ones
+//#pragma ones
 
 #include "Envelope.hpp"
 
