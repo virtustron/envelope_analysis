@@ -5,6 +5,7 @@ mod cpp_envelopes_analysis;
 fn main() {
     
     let command_line_arguments: Vec<String> = std::env::args().collect();
+    let mut is_arguments_valid: bool = true;
 
     if command_line_arguments.len() != 5
     {
@@ -16,30 +17,35 @@ fn main() {
         return;
     }
 
-    let arg_envelope1_size1 = &command_line_arguments[1];
-    let arg_envelope1_size2 = &command_line_arguments[2];
-    let arg_envelope2_size1 = &command_line_arguments[3];
-    let arg_envelope2_size2 = &command_line_arguments[4];
-
-    let envelope1_size1 = arg_envelope1_size1.parse::<f64>().unwrap_or_else(|_| {
-        println!("Not valid envelope size: {}.", arg_envelope1_size1);
+    let envelope1_size1 = command_line_arguments[1].parse::<f64>().unwrap_or_else(|_| {
+        println!("Not valid envelope size: {}.", command_line_arguments[1]);
+        is_arguments_valid = false;
         0.0
     });
 
-    let envelope1_size2 = arg_envelope1_size2.parse::<f64>().unwrap_or_else(|_| {
-        println!("Not valid envelope size: {}.", arg_envelope1_size2);
+    let envelope1_size2 = command_line_arguments[2].parse::<f64>().unwrap_or_else(|_| {
+        println!("Not valid envelope size: {}.", command_line_arguments[2]);
+        is_arguments_valid = false;
         0.0
     });
 
-    let envelope2_size1 = arg_envelope2_size1.parse::<f64>().unwrap_or_else(|_| {
-        println!("Not valid envelope size: {}.", arg_envelope2_size1);
+    let envelope2_size1 = command_line_arguments[3].parse::<f64>().unwrap_or_else(|_| {
+        println!("Not valid envelope size: {}.", command_line_arguments[3]);
+        is_arguments_valid = false;
         0.0
     });
 
-    let envelope2_size2 = arg_envelope2_size2.parse::<f64>().unwrap_or_else(|_| {
-        println!("Not valid envelope size: {}.", arg_envelope2_size2);
+    let envelope2_size2 = command_line_arguments[4].parse::<f64>().unwrap_or_else(|_| {
+        println!("Not valid envelope size: {}.", command_line_arguments[4]);
+        is_arguments_valid = false;
         0.0
     });
+
+    if !is_arguments_valid{
+        println!("Program stopped due to previous error.");
+        return;
+    }
+
 
     let mut container: *mut std::os::raw::c_void;
     container = ptr::null_mut();

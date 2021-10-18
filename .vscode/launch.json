@@ -9,7 +9,7 @@
             "request": "launch",
             "name": "Debug",
             "program": "${workspaceFolder}/target/debug/envelope_analysis",
-            "args": ["10.0", "10.0", "15.0", "15.0"],
+            "args": ["10.0", "10.0", "15.0", "ddd"],
             "cwd": "${workspaceFolder}"
         }
     ]
