@@ -4,20 +4,23 @@ mod cpp_envelopes_analysis;
 
 fn main() {
     
-    let mut args = std::env::args();
+    let mut command_line_arguments = std::env::args();
 
-    if args.len() != 5
+    if command_line_arguments.len() != 5
     {
-        println!("Wrong number of arguments provided.");
-        println!("Required arguments are: width height. Both arguments should be int > 0");
+        println!("Please enter 4 arguments - numbers with floating point:\n \
+         - first envelope width\n \
+         - first envelope length\n \
+         - second envelope width\n \
+         - second envelope length\n");
         return;
     }
 
-    args.next();    
-    let arg_envelope1_size1 = args.next().unwrap();
-    let arg_envelope1_size2 = args.next().unwrap();
-    let arg_envelope2_size1 = args.next().unwrap();
-    let arg_envelope2_size2 = args.next().unwrap();
+    command_line_arguments.next();    
+    let arg_envelope1_size1 = command_line_arguments.next().unwrap();
+    let arg_envelope1_size2 = command_line_arguments.next().unwrap();
+    let arg_envelope2_size1 = command_line_arguments.next().unwrap();
+    let arg_envelope2_size2 = command_line_arguments.next().unwrap();
 
     let envelope1_size1 = arg_envelope1_size1.parse::<f64>().unwrap_or_else(|_| {
         println!("Not valid envelope size: {}.", arg_envelope1_size1);
