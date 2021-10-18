@@ -3,14 +3,14 @@
 #include "EnvelopesContainer.hpp"
 #include "EnvelopeComparator.hpp"
 
-int InitializeEnvelopesContainer(void** container_to_initialize)
+int InitializeEnvelopesContainer(void** container_to_initialize, double envelope1_size1, double envelope1_size2, double envelope2_size1, double envelope2_size2)
 {
     // TODO try smart poriners
     EnvelopesContainer* envelopes_container;
     
     try
     {
-        envelopes_container = new EnvelopesContainer(10.0, 10.0, 15.0, 15.0);
+        envelopes_container = new EnvelopesContainer(envelope1_size1, envelope1_size2, envelope2_size1, envelope2_size2);
     }
     catch(const InvalidEnvelopeSizeException& e)
 	{
