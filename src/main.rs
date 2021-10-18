@@ -54,10 +54,10 @@ fn main() {
             if cpp_envelopes_analysis::CanOneEnvelopeContainAnother(container, &mut can_contain) == cpp_envelopes_analysis::COMPARATION_SUCCEDED {
                 
                 if can_contain {
-                    println!("Can contain!");
+                    println!("One of the envelopes can contain another!");
                 }
                 else {
-                    println!("Can not contain!");
+                    println!("No one of the envelopes can contain another!");
 
                 }
             }
